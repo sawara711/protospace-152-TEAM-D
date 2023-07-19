@@ -75,3 +75,5 @@ end
 group :development do
   gem 'rubocop', require: false
 end
+
+gem 'devise'
