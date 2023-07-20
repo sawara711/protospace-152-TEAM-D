@@ -71,7 +71,12 @@ group :test do
   gem "webdrivers"
 end
 
-  #Rubocop
+  #Rubocopを利用するための設定
 group :development do
   gem 'rubocop', require: false
+end
+
+  #RenderにてPosgreSQLを利用するための設定
+group :production do
+  gem 'pg'
 end
