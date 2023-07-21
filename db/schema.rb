@@ -25,6 +25,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_19_082212) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+ActiveRecord::Schema[7.0].define(version: 2023_07_20_073028) do
+  create_table "comments", charset: "utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "prototype_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prototypes", charset: "utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "title"
+    t.text "catch_copy"
+    t.text "concept"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
