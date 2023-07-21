@@ -55,3 +55,9 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
       [primary_key_type, foreign_key_type]
     end
 end
+
+class RemoveColumnFromComments < ActiveRecord::Migration[7.0]
+  def change
+    remove_column :comments, :image, text
+  end
+end

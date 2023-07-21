@@ -17,7 +17,6 @@ class PrototypesController < ApplicationController
       @prototype.save
       redirect_to root_path
     else
-      @prototype[:image] = nil
       render 'new'
     end
   end
@@ -26,9 +25,6 @@ class PrototypesController < ApplicationController
   end
 
   private
-  def keep_params
-    params.require(:prototype).permit( :title, :catch_copy, :concept,)
-  end
   def create_params_setting
     params.require(:prototype).permit( :title, :catch_copy, :concept, :image ).merge(user_id: current_user.id)
   end
