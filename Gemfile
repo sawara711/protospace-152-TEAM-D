@@ -83,3 +83,7 @@ end
 
 gem 'devise'
 gem 'pry-rails'
+
+  #MiniMagickとImageProcessingを利用するための設定
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
