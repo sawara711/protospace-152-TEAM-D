@@ -4,11 +4,15 @@ class Prototype < ApplicationRecord
     validates :title
     validates :catch_copy
     validates :concept
-    validates :image
   end
 
-  belongs_to :user
-  has_many :comments
   has_one_attached :image
+  validate :was_attached?
+  def was_attached?
+    self.image.attached?
+  end
+
+    belongs_to :user
+    has_many :comments
 
 end
