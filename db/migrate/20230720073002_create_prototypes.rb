@@ -9,8 +9,6 @@ class CreatePrototypes < ActiveRecord::Migration[7.0]
       t.text :catch_copy
       #concept
       t.text :concept
-      #image
-      t.text :image
       t.timestamps
     end
   end

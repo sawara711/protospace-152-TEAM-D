@@ -52,7 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_21_092848) do
     t.string "title"
     t.text "catch_copy"
     t.text "concept"
-    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
