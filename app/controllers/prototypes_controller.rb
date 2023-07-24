@@ -2,6 +2,7 @@ class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index ]
 
   def index
+    @prototypes = Prototype.includes(:user)
   end
 
   def edit
