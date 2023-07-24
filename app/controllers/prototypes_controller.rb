@@ -10,6 +10,7 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @prototype = Prototype.find(params[:id])
   end
 
   def destroy
@@ -27,6 +28,15 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    prototype = Prototype.find(params[:id]) 
+      if prototype.update(create_params_setting)
+        redirect_to action: :show
+      else
+        render :edit, status: :unprocessable_entity
+      end
   end
 
   private
