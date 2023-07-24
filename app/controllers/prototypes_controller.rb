@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :move_to_index, except: [:index, :show ]
+  before_action :move_to_index, except: [:index, :show, :destroy ]
 
   def index
     @prototypes = Prototype.includes(:user)
@@ -13,6 +13,9 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
+    prototype = Prototype.find(params[:id])
+    prototype.destroy
+    redirect_to root_path
   end
 
   def create
