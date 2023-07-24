@@ -34,7 +34,7 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    @prototype = Prototype.find(params[:id]) 
+    @prototype = Prototype.find(params[:id])
       if @prototype.update(create_params_setting)
         redirect_to action: :show
       else
