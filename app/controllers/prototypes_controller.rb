@@ -34,8 +34,8 @@ class PrototypesController < ApplicationController
   end
 
   def update
-    prototype = Prototype.find(params[:id]) 
-      if prototype.update(create_params_setting)
+    @prototype = Prototype.find(params[:id]) 
+      if @prototype.update(create_params_setting)
         redirect_to action: :show
       else
         render :edit, status: :unprocessable_entity
