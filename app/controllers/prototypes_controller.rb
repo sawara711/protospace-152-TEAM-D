@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :destroy ]
-  before_action :move_check, only: [ :destroy ]
+  before_action :move_check, only: [ :edit, :destroy ]
 
   def index
     @prototypes = Prototype.includes(:user)
@@ -11,6 +11,7 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @prototype = Prototype.find(params[:id])
   end
 
   def destroy
@@ -31,6 +32,15 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    @prototype = Prototype.find(params[:id])
+      if @prototype.update(create_params_setting)
+        redirect_to action: :show
+      else
+        render :edit, status: :unprocessable_entity
+      end
   end
 
   private
