@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :move_to_index, except: [ :index, :show, :destro, :edit ]
+  before_action :move_to_index, except: [ :index, :show, :destroy, :edit ]
   before_action :move_check, only: [ :edit, :destroy ]
 
   def index
@@ -32,6 +32,8 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comment = Comment.new
+    @comments = @prototype.comments.includes(:user)
   end
 
   def update
