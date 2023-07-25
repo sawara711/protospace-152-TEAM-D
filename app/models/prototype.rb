@@ -1,18 +1,12 @@
 class Prototype < ApplicationRecord
-  # 空の場合は登録できない
+  has_one_attached :image
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+
   with_options presence: true do
     validates :title
     validates :catch_copy
     validates :concept
+    validates :image
   end
-
-  has_one_attached :image
-  validate :was_attached?
-  def was_attached?
-    self.image.attached?
-  end
-
-    belongs_to :user
-    has_many :comments, dependent: :destroy
-
 end
