@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :destroy ]
+  before_action :move_to_index, except: [:index, :show, :edit, :destroy ]
   before_action :move_check, only: [ :edit, :destroy ]
 
   def index
